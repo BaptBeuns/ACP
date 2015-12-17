@@ -1,0 +1,21 @@
+#!/bin/bash
+
+NBROW=$1
+NBCOL=$2
+COUNTROW=1
+CEILNUMBER=3
+
+while [ "$COUNTROW" -le $NBROW ]
+do
+    COUNT=1
+    STRING=""
+    while [ "$COUNT" -le $NBCOL ]
+    do
+        NUMBER=$RANDOM
+        let "NUMBER %= $CEILNUMBER"
+        STRING="$STRING$NUMBER;"
+        let "COUNT += 1"
+    done
+    echo $STRING
+    let "COUNTROW += 1"
+done
