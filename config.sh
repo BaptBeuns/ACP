@@ -1,6 +1,7 @@
 #! /bin/bash
 
-cd ~/Documents/ACP/build
+mkdir -p build
+cd build
 rm -rf *
 
 mkdir Release
