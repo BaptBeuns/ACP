@@ -1,6 +1,4 @@
 #include <iostream>
-#include <fstream>
-#include <cmath>
 #include <map>
 
 typedef int size_type;
@@ -14,15 +12,17 @@ class Matrix
 public:
     Matrix(size_type i){ m=i; n=i; }
     Matrix(size_type i, size_type j){ m=i; n=j; }
+    Matrix(std::string file_name);
 
-    inline
-    int& operator()(size_type i, size_type j)
-    {
-        if(i>=m || j>=n) throw;
-        return mat[i][j];
-    }
+    // inline
+    // int& operator()(size_type i, size_type j)
+    // {
+    //     if(i>=m || j>=n) throw;
+    //     return mat[i][j];
+    // }
 
-    friend std::ostream& operator<<(std::ostream& os, Matrix& matrix); // il faudrait que ce soit const Matrix& matrix...
+    // il faudrait que ce soit const Matrix& matrix...
+    friend std::ostream& operator<<(std::ostream& os, Matrix& matrix);
 
 protected:
     Matrix(){}
