@@ -12,6 +12,7 @@ Matrix::Matrix(std::string file_name){
 
     // En revanche, quand on veut seulement lire, il faut faire :
     // mat.at(i).at(j)
+    // avec un catch sur l'erreur out_of_range : http://www.cplusplus.com/reference/map/map/at/
 }
 
 
