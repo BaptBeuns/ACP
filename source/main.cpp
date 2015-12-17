@@ -1,8 +1,14 @@
 #include <iostream>
+#include "matrix.h"
+#include <map>
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Fils de pute" << std::endl;
+    Matrix cars(5, 5);
+
+    cout << cars << endl;
     return 0;
 }
 
