@@ -1,46 +1,33 @@
 #include "matrix.h"
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
-Matrix::Matrix(std::string file_name){
-    // On lit m et n dans la première ligne du fichier
-    // On lit mat dans les lignes qui suivent
-    // Utiliser les fonctions qui sont écrites ci-dessous
+Matrix::Matrix(string file_name){
+    string STRING;
+    ifstream infile(file_name.c_str());
+    while(!infile.eof()) // To get you all the lines.
+    {
+        getline(infile,STRING); // Saves the line in STRING.
+        cout << STRING << endl;
+        // On lit m et n dans la première ligne du fichier
 
-    // Attention, quand on veut assigner mat[i][j], on fait ça :
-    // mat[i][j]
+        // On lit mat dans les lignes qui suivent
+        // Utiliser les fonctions qui sont écrites ci-dessous
 
-    // En revanche, quand on veut seulement lire, il faut faire :
-    // mat.at(i).at(j)
-    // avec un catch sur l'erreur out_of_range : http://www.cplusplus.com/reference/map/map/at/
+        // Attention, quand on veut assigner mat[i][j], on fait ça :
+        // mat[i][j]
+
+        // En revanche, quand on veut seulement lire, il faut faire :
+        // mat.at(i).at(j)
+        // avec un catch sur l'erreur out_of_range : http://www.cplusplus.com/reference/map/map/at/
+    }
+    infile.close();
 }
-
-
 
 
 /*
-// Read a file
-#include <iostream>
-#include <fstream>
-#include <string>
-using namespace std;
-
-void main ()
-{
-        string STRING;
-    ifstream infile;
-    infile.open ("names.txt");
-        while(!infile.eof) // To get you all the lines.
-        {
-            getline(infile,STRING); // Saves the line in STRING.
-            cout<<STRING; // Prints our STRING.
-        }
-    infile.close();
-    system ("pause");
-}
-
-
-
 // Split a string
 std::string s = "scott>=tiger>=mushroom";
 std::string delimiter = ">=";

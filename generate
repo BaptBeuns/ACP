@@ -5,6 +5,7 @@ NBCOL=$2
 COUNTROW=1
 CEILNUMBER=3
 
+echo "$NBROW;$NBCOL;"
 while [ "$COUNTROW" -le $NBROW ]
 do
     COUNT=1

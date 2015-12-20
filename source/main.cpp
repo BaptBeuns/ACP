@@ -5,8 +5,8 @@ using namespace std;
 
 int main()
 {
-    Matrix cars(5, 5);
+    // Matrix cars(5, 5);
+    Matrix cars = Matrix("../../cars.csv");
 
-    cout << cars << endl;
     return 0;
 }

@@ -21,9 +21,6 @@ public:
     //     return mat[i][j];
     // }
 
-    // il faudrait que ce soit const Matrix& matrix...
-    friend std::ostream& operator<<(std::ostream& os, Matrix& matrix);
-
 protected:
     Matrix(){}
 
@@ -32,16 +29,3 @@ private:
     size_type m;
     size_type n;
 };
-
-std::ostream& operator<<(std::ostream& os, Matrix& matrix)
-{
-    for(row_iter ii=matrix.mat.begin(); ii!=matrix.mat.end(); ii++){
-        for(col_iter jj=(*ii).second.begin(); jj!=(*ii).second.end(); jj++){
-            os << (*ii).first << ' ';
-            os << (*jj).first << ' ';
-            os << (*jj).second << std::endl;
-        }
-    }
-    os << std::endl;
-    return os << std::endl << "Alex PDV enculé";
-}
