@@ -21,9 +21,7 @@ void loadFile(const char* inputFile, int &row, int &col, Blue &blue, Red &red, s
         string step;
         istringstream streamline(line);
         while(getline(streamline, step, ',')) {
-            int i = atoi(step.c_str());
-            // cout << i << endl;
-            // stepsToPrint.insert(stoi(step));
+            stepsToPrint.insert(stoi(step));
         }
 /*
         // Read other lines to get the cars matrices
