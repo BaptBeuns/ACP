@@ -7,6 +7,23 @@ typedef typename mat_t::iterator row_iter;
 typedef std::map<size_type, int> col_t;
 typedef typename col_t::iterator col_iter;
 
+
+class Matrix{
+  int row, col;
+  void move();
+  void printInFile();
+}
+
+class Blue:public Matrix{
+  static int color=1;
+  int **cars;
+}
+
+class Red:public Matrix{
+  static int color=2;
+  int **cars;
+}
+
 class Matrix
 {
 public:
