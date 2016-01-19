@@ -1,29 +1,29 @@
 #include <iostream>
 #include <map>
 
-typedef int size_type;
-typedef std::map<size_type, std::map<size_type , int> > mat_t;
-typedef typename mat_t::iterator row_iter;
-typedef std::map<size_type, int> col_t;
-typedef typename col_t::iterator col_iter;
+// typedef int size_type;
+// typedef std::map<size_type, std::map<size_type , int> > mat_t;
+// typedef typename mat_t::iterator row_iter;
+// typedef std::map<size_type, int> col_t;
+// typedef typename col_t::iterator col_iter;
 
 
 class Matrix{
   int row, col;
   void move();
   void printInFile();
-}
+};
 
 class Blue:public Matrix{
-  static int color=1;
+  // static int color=1;
   int **cars;
-}
+};
 
 class Red:public Matrix{
-  static int color=2;
+  // static int color=2;
   int **cars;
-}
-
+};
+/*
 class Matrix
 {
 public:
@@ -46,3 +46,4 @@ private:
     size_type m;
     size_type n;
 };
+*/

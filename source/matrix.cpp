@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 
+/*
 using namespace std;
 
 Matrix::Matrix(string file_name){
@@ -25,7 +26,7 @@ Matrix::Matrix(string file_name){
     }
     infile.close();
 }
-
+*/
 
 /*
 // Split a string
