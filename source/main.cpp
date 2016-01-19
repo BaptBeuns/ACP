@@ -3,8 +3,6 @@
 #include <sstream>
 #include <set>
 #include <string>
-#include <vector>
-#include <stdio.h>
 
 #include "matrix.h"
 
@@ -12,7 +10,7 @@ using namespace std;
 
 void loadFile(const char* inputFile, int &row, int &col, Blue &blue, Red &red, set<int> stepsToPrint)
 {
-    string line;
+    string line, number;
     ifstream file(inputFile, ios::in);
 
     if(file){
@@ -23,22 +21,14 @@ void loadFile(const char* inputFile, int &row, int &col, Blue &blue, Red &red, s
         while(getline(streamline, step, ',')) {
             stepsToPrint.insert(stoi(step));
         }
-/*
+
         // Read other lines to get the cars matrices
         while(getline(file, line)){
-            istringstream iss(line);
-            while(getline(iss, line2, ',')){
-                matrix[i][j] = stoi(line2);
-                if(j<columns-1){
-                    j++;
-                }
-                else{
-                    j=0;
-                    i++;
-                }
+            istringstream streamline(line);
+            while(getline(streamline, number, ',')){
+                int n = stoi(number);
             }
         }
-*/
         cout << "Bien chargé négro" << endl;
     }
 };
