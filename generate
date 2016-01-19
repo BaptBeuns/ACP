@@ -5,7 +5,7 @@ NBCOL=$2
 COUNTROW=1
 CEILNUMBER=3
 
-echo "$NBROW;$NBCOL;"
+echo "1,10,100"
 while [ "$COUNTROW" -le $NBROW ]
 do
     COUNT=1
@@ -14,7 +14,7 @@ do
     do
         NUMBER=$RANDOM
         let "NUMBER %= $CEILNUMBER"
-        STRING="$STRING$NUMBER;"
+        STRING="$STRING$NUMBER,"
         let "COUNT += 1"
     done
     echo $STRING
