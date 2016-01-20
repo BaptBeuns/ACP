@@ -72,16 +72,20 @@ int main()
     // Main loop, going on until there is no more step to print in file
     while(!stepsToPrint.empty()) {
 
+        // Moves the cars. If it doesn't move, stop the execution
+        if (!matrix.moveBlue() && !matrix.moveRed()) {
+            cout << "Execution is ended because no car can move anymore." << endl;
+            break;
+        }
+
+        // Increments the step
+        ++step;
+
         // Checks if the step has to be printed
         if (stepsToPrint.find(step) != stepsToPrint.end()) {
             matrix.printInFile(to_string(step) + ".csv");
             stepsToPrint.erase(step);
         }
-
-        // Moves the cars
-
-        // Increments the step
-        ++step;
     }
 
     return 0;
