@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void loadFile(const char* inputFile, int &row, int &col, set<int> stepsToPrint, Matrix &matrix)
+void loadFile(const char* inputFile, int &row, int &col, set<int> &stepsToPrint, Matrix &matrix)
 {
     string line, number;
     ifstream file(inputFile, ios::in);
@@ -63,12 +63,26 @@ void loadFile(const char* inputFile, int &row, int &col, set<int> stepsToPrint, 
 int main()
 {
     // Initialisation of variables
-    int row, col;
+    int row, col, step=0;
     set<int> stepsToPrint;
     Matrix matrix;
 
     loadFile("../../problem.csv", row, col, stepsToPrint, matrix);
-    matrix.printInFile("tamere.csv");
+
+    // Main loop, going on until there is no more step to print in file
+    while(!stepsToPrint.empty()) {
+
+        // Checks if the step has to be printed
+        if (stepsToPrint.find(step) != stepsToPrint.end()) {
+            matrix.printInFile(to_string(step) + ".csv");
+            stepsToPrint.erase(step);
+        }
+
+        // Moves the cars
+
+        // Increments the step
+        ++step;
+    }
 
     return 0;
 }
