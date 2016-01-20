@@ -12,6 +12,8 @@ void loadFile(const char* inputFile, int &row, int &col, Blue &blue, Red &red, s
 {
     string line, number;
     ifstream file(inputFile, ios::in);
+    row = 0;
+    col = 0;
 
     if(file){
         // Read first line to get stepsToPrint
@@ -24,12 +26,17 @@ void loadFile(const char* inputFile, int &row, int &col, Blue &blue, Red &red, s
 
         // Read other lines to get the cars matrices
         while(getline(file, line)){
+            ++row;
             istringstream streamline(line);
             while(getline(streamline, number, ',')){
+                if (row == 1) {
+                    ++col;
+                }
                 int n = stoi(number);
             }
         }
-        cout << "Bien chargé négro" << endl;
+        cout << "Nombre de lignes : " << row << endl;
+        cout << "Nombre de colonnes : " << col << endl;
     }
 };
 
