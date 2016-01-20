@@ -68,43 +68,7 @@ int main()
     Matrix matrix;
 
     loadFile("../../problem.csv", row, col, stepsToPrint, matrix);
+    matrix.printInFile("tamere.csv");
 
-/*
-    Matrix cars = Matrix("../../cars.csv", &blue, &red);
-
-    while (step <= 100) {
-      // if step 1, 10, 100 -> print in file
-      if (step in [1, 10, 100]) {
-        print cars;
-      }
-      // move blue cars
-      blue.move()
-      // move red cars
-      red.move()
-    }
-*/
-
-
-/*
-ECRITURE DANS UN FICHIER
-
-int nomfichier = vect[j];
-string extension = ".csv";
-string nomentier = to_string(nomfichier) + extension;
-ofstream objectfile(nomentier, ios::out);
-
-for (int m=0; m<lines; m++){
-    for (int n=0; n<columns; n++){
-        if(n == columns-1){
-            objectfile << matrix[m][n] << endl;
-        }
-        else{
-            objectfile << matrix[m][n] << ",";
-        }
-    }
-}
-
-
-*/
     return 0;
 }
