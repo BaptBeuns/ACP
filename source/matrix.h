@@ -16,7 +16,7 @@ public:
 
     // Move methods
     bool moveBlue();
-    bool moveRed() {return false; };
+    bool moveRed();
 
 private:
     int row, col, *mat;

@@ -66,32 +66,34 @@ int main()
     int row, col, step=0;
     set<int> stepsToPrint;
     Matrix matrix;
-    
+
     loadFile("../../problem.csv", row, col, stepsToPrint, matrix);
 
-    // Main loop, going on until there is no more step to print in file
-    while(!stepsToPrint.empty()) {
+    // Boolean representing the fact that some cars moved. ie traffic not blocked
+    bool redMoved = true, blueMoved = true, blockedTraffic = false;
 
-        //Moves the cars. If it doesn't move, stop the execution
-       if (!matrix.moveBlue() && !matrix.moveRed()) {
-            cout << "Execution is ended because no car can move anymore." << endl;
-           break;
-         }
-
-        matrix.moveBlue();
+    // Main loop, going on until there is no more step to print in file,
+    // or until no car can move anymore.
+    while(!stepsToPrint.empty() || !blockedTraffic) {
 
         // Increments the step
         ++step;
+        cout << step << endl;
 
-        //matrix.moveRed();
-
+        // Moves the cars. If it doesn't move, stop the execution
+        if (step%2 == 1) {
+            blueMoved = matrix.moveBlue();
+        } else {
+            redMoved = matrix.moveRed();
+        }
+        blockedTraffic = (!blueMoved && !redMoved);
 
         // Checks if the step has to be printed
         if (stepsToPrint.find(step) != stepsToPrint.end()) {
             matrix.printInFile(to_string(step) + ".csv");
             stepsToPrint.erase(step);
         }
-   }
+    }
 
     return 0;
 }
