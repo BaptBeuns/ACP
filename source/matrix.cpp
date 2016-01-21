@@ -13,3 +13,30 @@ void Matrix::printInFile(std::string outputFile) {
         }
     }
 }
+
+bool Matrix::moveBlue(){
+int i;
+for (int j=0; j<col; ++j){
+
+      for (int i=0; i<row; ++i){
+  if  (this->operator()(i, j)==1 && this->operator()((i+1)%row, j)==0){
+
+        this->operator()(i, j)=0;
+        this->operator()((i+1)%row, j)=1;
+        i=i+2;
+    }
+
+    }
+  }
+  return true;
+};
+
+
+/*bool Matrix::moveRed(){
+for (int i=0; i<row; ++i){
+    for (int j=0; j<col; ++j){
+  if  (this->operator()(i, j)==1 && this->operator()(i, (j+1)%row)==0){
+
+        this->operator()(i, j)=0;
+        this->operator()((i+1)%col, j)=1;
+}*/

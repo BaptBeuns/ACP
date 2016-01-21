@@ -15,11 +15,12 @@ public:
     void setElement(int i, int j, int number) { mat[i*col + j] = number; };
 
     // Move methods
-    bool moveBlue() {return false; };
+    bool moveBlue();
     bool moveRed() {return false; };
 
 private:
     int row, col, *mat;
+
 };
 
 
