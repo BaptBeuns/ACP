@@ -64,7 +64,7 @@ int main()
     set<int> stepsToPrint;
     Matrix matrix;
 
-    loadFile("../../problem.csv", row, col, stepsToPrint, matrix);
+    loadFile("problem.csv", row, col, stepsToPrint, matrix);
 
     // Boolean representing the fact that some cars moved. ie traffic not blocked
     bool redMoved = true, blueMoved = true, blockedTraffic = false;

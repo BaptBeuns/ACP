@@ -12,7 +12,7 @@ void Matrix::printInFile(std::string outputFile) {
 
     for (int i=0; i<row; ++i){
         for (int j=0; j<col; ++j){
-            fileToWrite << this->operator()(i, j) << (j == col-1) ? "\n" : ",";
+            fileToWrite << this->operator()(i, j) << string((j == col-1) ? "\n" : ",");
         }
     }
 }
