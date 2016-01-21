@@ -78,7 +78,6 @@ int main()
 
         // Increments the step
         ++step;
-        cout << step << endl;
 
         // Moves the cars. If it doesn't move, stop the execution
         if (step%2 == 1) {

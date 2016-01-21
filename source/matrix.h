@@ -8,7 +8,9 @@ public:
     Matrix(){ row=0; col=0; }
     Matrix(int r, int c){ row=r; col=c; mat = new int[row*col]; }
 
+    // Setter
     int& operator()(int i, int j);
+    // Getter
     int operator()(int i, int j) const;
 
     void printInFile(std::string outputFile);
