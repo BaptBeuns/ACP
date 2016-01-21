@@ -4,6 +4,7 @@
 #include <set>
 #include <string>
 
+#include "timing.h"
 #include "matrix.h"
 
 using namespace std;
@@ -34,8 +35,6 @@ void loadFile(const char* inputFile, int &row, int &col, set<int> &stepsToPrint,
             }
             ++row;
         }
-        cout << "Number of lines: " << row << endl;
-        cout << "Number of columns: " << col << endl;
 
         // Creating and filling the matrix
         matrix = Matrix(row, col);
@@ -54,8 +53,6 @@ void loadFile(const char* inputFile, int &row, int &col, set<int> &stepsToPrint,
             }
             ++i;
         }
-
-        cout << "Matrix loaded" << endl;
     }
 };
 
@@ -71,6 +68,9 @@ int main()
 
     // Boolean representing the fact that some cars moved. ie traffic not blocked
     bool redMoved = true, blueMoved = true, blockedTraffic = false;
+
+timer Timer;
+Timer.start();
 
     // Main loop, going on until there is no more step to print in file,
     // or until no car can move anymore.
@@ -94,5 +94,6 @@ int main()
         }
     }
 
+Timer.stop();
     return 0;
 }
