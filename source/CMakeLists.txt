@@ -4,6 +4,9 @@ add_executable(cars main.cpp matrix.cpp)
 
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-#set (CMAKE_CXX_FLAGS "${ CMAKE_CXX_FLAGS } - fopenmp ")
-#set(CMAKE_BUILD_TYPE Debug)
+# OpenMP
+set (ENABLE_OMP On CACHE BOOL "Enable OpenMP")
 
+if(ENABLE_OMP)
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp ")
+endif()
