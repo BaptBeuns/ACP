@@ -4,6 +4,7 @@
 #include <set>
 #include <string>
 
+#include <omp.h>
 #include "timing.h"
 #include "matrix.h"
 
