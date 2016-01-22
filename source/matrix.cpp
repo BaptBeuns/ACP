@@ -31,6 +31,7 @@ bool Matrix::moveBlue() {
                     // Move current car
                     *currentCar = 0;
                     *nextCar = BLUE;
+                    movedBlue = true;
                     i += 2;
                 } else {
                     // Skip current car
@@ -59,6 +60,7 @@ bool Matrix::moveRed(){
                     // Move current car
                     *currentCar = 0;
                     *nextCar = RED;
+                    movedRed = true;
                     j+= 2;
                 } else {
                     // Skip current car
