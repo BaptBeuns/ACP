@@ -4,4 +4,4 @@ build/
 # Ignore the docs
 docs/
 
-problem.csv
+*.csv
