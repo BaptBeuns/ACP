@@ -48,7 +48,7 @@ void loadFile(const char* inputFile, int &row, int &col, set<int> &stepsToPrint,
             istringstream streamline(line);
             j = 0;
             while(getline(streamline, number, ',')){
-                matrix.setElement(i, j, stoi(number));
+                matrix(i, j) = stoi(number);
                 ++j;
             }
             ++i;
@@ -95,5 +95,6 @@ Timer.start();
     }
 
 Timer.stop();
+    matrix.deleteMatrix();
     return 0;
 }

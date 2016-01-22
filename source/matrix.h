@@ -14,7 +14,7 @@ public:
     int operator()(int i, int j) const;
 
     void printInFile(std::string outputFile);
-    void setElement(int i, int j, int number) { mat[i*col + j] = number; };
+    void deleteMatrix() { delete[] mat; };
 
     // Move methods
     bool moveBlue();

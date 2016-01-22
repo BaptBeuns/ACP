@@ -7,6 +7,7 @@ using namespace std;
 const int BLUE = 1;
 const int RED = 2;
 
+
 void Matrix::printInFile(std::string outputFile) {
     ofstream fileToWrite(outputFile, ios::out);
 
