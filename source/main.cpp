@@ -4,7 +4,6 @@
 #include <set>
 #include <string>
 
-#include <omp.h>
 #include "timing.h"
 #include "matrix.h"
 
@@ -24,7 +23,6 @@ set<int> loadFile(const char* inputFile)
         while(getline(streamline, step, ',')) {
             stepsToPrint.insert(stoi(step));
         }
-        file.clear();
         file.close();
     } else {
         cout << "File doesn't exist!" << endl ;
@@ -43,6 +41,12 @@ int main()
 
     // Boolean representing the fact that some cars moved. ie traffic not blocked
     bool redMoved = true, blueMoved = true, blockedTraffic = false;
+
+
+timer Timer;
+Timer.start();
+
+
 
     // Main loop, going on until there is no more step to print in file,
     // or until no car can move anymore.
@@ -65,6 +69,10 @@ int main()
             stepsToPrint.erase(step);
         }
     }
+
+
+Timer.stop();
+
 
     return 0;
 }

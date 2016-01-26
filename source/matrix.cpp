@@ -69,7 +69,7 @@ void Matrix::printInFile(std::string outputFile) {
 bool Matrix::moveBlue() {
     bool movedBlue = false;
     int i = 0;
-    #pragma omp parallel for schedule(static) private(i)
+    #pragma omp parallel for schedule(guided) private(i)
     for (int j=0; j<col; ++j){
 
         while(i < row) {
@@ -101,11 +101,8 @@ bool Matrix::moveBlue() {
 bool Matrix::moveRed(){
     bool movedRed = false;
     int j = 0;
-    #pragma omp parallel for schedule(static) private(j)
+    #pragma omp parallel for schedule(guided) private(j)
     for (int i=0; i<row; ++i){
-
-
-
         while(j < col) {
             int *currentCar = &(this->operator()(i, j));
             int *nextCar = &(this->operator()(i, (j+1)%col));
