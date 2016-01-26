@@ -2,6 +2,7 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
+#include <omp.h>
 
 using namespace std;
 
@@ -67,9 +68,10 @@ void Matrix::printInFile(std::string outputFile) {
 
 bool Matrix::moveBlue() {
     bool movedBlue = false;
-    #pragma omp parallel for schedule(static)
+    int i = 0;
+    #pragma omp parallel for schedule(static) private(i)
     for (int j=0; j<col; ++j){
-        int i = 0;
+
         while(i < row) {
             int *currentCar = &(this->operator()(i, j));
             int *nextCar = &(this->operator()((i+1)%row, j));
@@ -91,15 +93,19 @@ bool Matrix::moveBlue() {
             }
         }
     }
+
     return movedBlue;
 }
 
 
 bool Matrix::moveRed(){
     bool movedRed = false;
-    #pragma omp parallel for schedule(static)
+    int j = 0;
+    #pragma omp parallel for schedule(static) private(j)
     for (int i=0; i<row; ++i){
-        int j = 0;
+
+
+
         while(j < col) {
             int *currentCar = &(this->operator()(i, j));
             int *nextCar = &(this->operator()(i, (j+1)%col));
@@ -121,5 +127,6 @@ bool Matrix::moveRed(){
             }
         }
     }
+
     return movedRed;
 }
