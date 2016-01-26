@@ -1,4 +1,5 @@
 #include "matrix.h"
+#include <sstream>
 #include <iostream>
 #include <fstream>
 
@@ -8,6 +9,50 @@ const int BLUE = 1;
 const int RED = 2;
 
 
+Matrix::Matrix(std::string inputFile) {
+    string line, number;
+    ifstream file(inputFile, ios::in);
+    row = 0;
+    col = 0;
+
+    if(file){
+        // Skip first line
+        getline(file, line);
+
+        // Read other lines to get the dimensions
+        while(getline(file, line)){
+            istringstream streamline(line);
+            if (row == 0) {
+                while(getline(streamline, number, ',')){
+                    ++col;
+                }
+            }
+            ++row;
+        }
+        mat = new int[row*col];
+
+        // Creating and filling the matrix
+        file.clear();
+        file.seekg(0);
+        int i = 0;
+        int j = 0;
+        // Skip first line
+        getline(file, line);
+        while(getline(file, line)){
+            istringstream streamline(line);
+            j = 0;
+            while(getline(streamline, number, ',')){
+                this->operator()(i, j) = stoi(number);
+                ++j;
+            }
+            ++i;
+        }
+        file.close();
+    } else {
+        cout << "File doesn't exist!" << endl ;
+    }
+}
+
 void Matrix::printInFile(std::string outputFile) {
     ofstream fileToWrite(outputFile, ios::out);
 
@@ -16,6 +61,8 @@ void Matrix::printInFile(std::string outputFile) {
             fileToWrite << this->operator()(i, j) << string((j == col-1) ? "\n" : ",");
         }
     }
+
+    fileToWrite.close();
 }
 
 bool Matrix::moveBlue() {
