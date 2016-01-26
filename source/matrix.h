@@ -7,6 +7,12 @@ class Matrix{
 public:
     Matrix(){ row=0; col=0; }
     Matrix(int r, int c){ row=r; col=c; mat = new int[row*col]; }
+    Matrix(std::string inputFile);
+    ~Matrix() {
+        if (row!=0 and col!=0) {
+            delete[] mat;
+        }
+    };
 
     // Setter
     int& operator()(int i, int j);
@@ -14,7 +20,6 @@ public:
     int operator()(int i, int j) const;
 
     void printInFile(std::string outputFile);
-    void setElement(int i, int j, int number) { mat[i*col + j] = number; };
 
     // Move methods
     bool moveBlue();
