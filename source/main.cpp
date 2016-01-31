@@ -70,6 +70,14 @@ Timer.start();
         }
     }
 
+    // If traffic is blocked, we print all the missing files
+    if (blockedTraffic) {
+        for (set<int>::iterator step = stepsToPrint.begin(); step != stepsToPrint.end(); ++step)
+        {
+            matrix.printInFile(to_string(*step) + ".csv");
+        }
+    }
+
 
 Timer.stop();
 
