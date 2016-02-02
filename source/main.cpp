@@ -4,7 +4,6 @@
 #include <set>
 #include <string>
 
-#include "timing.h"
 #include "matrix.h"
 
 using namespace std;
@@ -42,11 +41,6 @@ int main()
     // Boolean representing the fact that some cars moved. ie traffic not blocked
     bool redMoved = true, blueMoved = true, blockedTraffic = false;
 
-
-timer Timer;
-Timer.start();
-
-
     // Main loop, going on until there is no more step to print in file,
     // or until no car can move anymore.
     while(!blockedTraffic && !stepsToPrint.empty()) {
@@ -71,15 +65,12 @@ Timer.start();
 
     // If traffic is blocked, we print all the missing files
     if (blockedTraffic) {
+        cout << "Traffic is blocked at step " << step << ", printing output files..." << endl;
         for (set<int>::iterator step = stepsToPrint.begin(); step != stepsToPrint.end(); ++step)
         {
             matrix.printInFile(to_string(*step) + ".csv");
         }
     }
-
-
-Timer.stop();
-
 
     return 0;
 }
