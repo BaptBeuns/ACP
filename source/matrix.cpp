@@ -69,7 +69,6 @@ void Matrix::printInFile(std::string outputFile) {
 bool Matrix::moveBlue() {
     bool movedBlue = false;
 
-    #pragma omp parallel for schedule(guided) reduction(||:movedBlue)
     for (int j=0; j<col; ++j){
 
         int i = 0;
@@ -102,7 +101,6 @@ bool Matrix::moveBlue() {
 bool Matrix::moveRed(){
     bool movedRed = false;
 
-    #pragma omp parallel for schedule(guided) reduction(||:movedRed)
     for (int i=0; i<row; ++i){
 
         int j = 0;
