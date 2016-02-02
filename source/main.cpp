@@ -47,10 +47,9 @@ timer Timer;
 Timer.start();
 
 
-
     // Main loop, going on until there is no more step to print in file,
     // or until no car can move anymore.
-    while(!stepsToPrint.empty() || !blockedTraffic) {
+    while(!blockedTraffic && !stepsToPrint.empty()) {
 
         // Increments the step
         ++step;
@@ -62,13 +61,13 @@ Timer.start();
             redMoved = matrix.moveRed();
         }
         blockedTraffic = (!blueMoved && !redMoved);
-
         // Checks if the step has to be printed
         if (stepsToPrint.find(step) != stepsToPrint.end()) {
             matrix.printInFile(to_string(step) + ".csv");
             stepsToPrint.erase(step);
         }
     }
+
 
     // If traffic is blocked, we print all the missing files
     if (blockedTraffic) {

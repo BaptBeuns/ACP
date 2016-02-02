@@ -33,10 +33,16 @@ private:
 
 inline
 int& Matrix::operator()(int i, int j){
+    if(!(0 <= i && i < row && 0 <= j && j < col)) {
+        throw std::invalid_argument( "received incoherent value" );
+    }
     return mat[i*col + j];
 }
 
 inline
 int Matrix::operator()(int i, int j) const {
+    if(!(0 <= i && i < row && 0 <= j && j < col)) {
+        throw std::invalid_argument( "received incoherent value" );
+    }
     return mat[i*col + j];
 }
