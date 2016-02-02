@@ -71,8 +71,8 @@ bool Matrix::moveBlue() {
 
     #pragma omp parallel for schedule(guided) reduction(||:movedBlue)
     for (int j=0; j<col; ++j){
-    int i = 0;
 
+        int i = 0;
         while(i < row) {
             int *currentCar = &(this->operator()(i, j));
             int *nextCar = &(this->operator()((i+1)%row, j));
@@ -83,7 +83,7 @@ bool Matrix::moveBlue() {
                     // Move current car
                     *currentCar = 0;
                     *nextCar = BLUE;
-                        movedBlue = true;
+                    movedBlue = true;
                     i += 2;
                 } else {
                     // Skip current car
@@ -104,8 +104,8 @@ bool Matrix::moveRed(){
 
     #pragma omp parallel for schedule(guided) reduction(||:movedRed)
     for (int i=0; i<row; ++i){
-    int j = 0;
 
+        int j = 0;
         while(j < col) {
             int *currentCar = &(this->operator()(i, j));
             int *nextCar = &(this->operator()(i, (j+1)%col));
@@ -116,7 +116,7 @@ bool Matrix::moveRed(){
                     // Move current car
                     *currentCar = 0;
                     *nextCar = RED;
-                        movedRed = true;
+                    movedRed = true;
                     j+= 2;
                 } else {
                     // Skip current car
