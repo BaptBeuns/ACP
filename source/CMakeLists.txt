@@ -3,6 +3,7 @@ project(Cars CXX)
 add_executable(cars main.cpp matrix.cpp)
 
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+SET(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
 # OpenMP
 set (ENABLE_OMP On CACHE BOOL "Enable OpenMP")
