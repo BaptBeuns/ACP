@@ -6,6 +6,7 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 # OpenMP
 set (ENABLE_OMP On CACHE BOOL "Enable OpenMP")
+SET(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
 if(ENABLE_OMP)
     set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp ")
