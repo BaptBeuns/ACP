@@ -55,6 +55,7 @@ int main()
             redMoved = matrix.moveRed();
         }
         blockedTraffic = (!blueMoved && !redMoved);
+
         // Checks if the step has to be printed
         if (stepsToPrint.find(step) != stepsToPrint.end()) {
             matrix.printInFile(to_string(step) + ".csv");
